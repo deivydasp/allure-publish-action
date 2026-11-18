@@ -1,4 +1,4 @@
-name: "Allure Deployer Action"
+name: "Allure Publish Action"
 description: "Deploy Allure reports to GitHub Pages with History, Aggregation and Slack integration"
 author: "Deivydas Piliukaitis"
 

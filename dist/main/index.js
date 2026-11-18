@@ -38803,7 +38803,7 @@ class GitHubNotifier {
         ]);
         // The Summary Page link goes to the job summary only; a PR comment covers just this PR's report
         const message = data.summaryPageUrl
-            ? `<img src="https://raw.githubusercontent.com/deivydasp/allure-deployer-action-v2/master/assets/allure-logo.png" alt="allure" align="absmiddle" />&nbsp;&nbsp;<a href="${data.summaryPageUrl}">Summary Page</a>\n\n${table}`
+            ? `<img src="https://raw.githubusercontent.com/deivydasp/allure-publish-action/master/assets/allure-logo.png" alt="allure" align="absmiddle" />&nbsp;&nbsp;<a href="${data.summaryPageUrl}">Summary Page</a>\n\n${table}`
             : table;
         const promises = [];
         if (data.reportUrl) {
@@ -44147,7 +44147,7 @@ async function runSummaryMode() {
         }
         rows.sort((a, b) => (a.notDeployed ? 1 : 0) - (b.notDeployed ? 1 : 0));
         const table = buildSummaryTable(rows);
-        const summaryPageLink = `<img src="https://raw.githubusercontent.com/deivydasp/allure-deployer-action-v2/master/assets/allure-logo.png" alt="allure" align="absmiddle" />&nbsp;&nbsp;<a href="${normalizeUrl(pagesUrl)}">Summary Page</a>`;
+        const summaryPageLink = `<img src="https://raw.githubusercontent.com/deivydasp/allure-publish-action/master/assets/allure-logo.png" alt="allure" align="absmiddle" />&nbsp;&nbsp;<a href="${normalizeUrl(pagesUrl)}">Summary Page</a>`;
         const message = `${summaryPageLink}\n\n${table}`;
         const githubService = new GitHubService();
         await githubService.updateSummary(message);
@@ -44275,7 +44275,7 @@ function createExecutor(reportUrl) {
     const reportName = io.report_name;
     return {
         reportName,
-        name: 'Allure Deployer Action',
+        name: 'Allure Publish Action',
         reportUrl,
         buildUrl: createGitHubBuildUrl(),
         buildName,

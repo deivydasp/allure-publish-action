@@ -1,7 +1,7 @@
-# Allure Deployer Action
+# Allure Publish Action
 
-[![CI](https://github.com/deivydasp/allure-deployer-action-v2/actions/workflows/ci.yml/badge.svg)](https://github.com/deivydasp/allure-deployer-action-v2/actions/workflows/ci.yml)
-[![License: BSD-3-Clause](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://github.com/deivydasp/allure-deployer-action-v2/blob/master/LICENSE)
+[![CI](https://github.com/deivydasp/allure-publish-action/actions/workflows/ci.yml/badge.svg)](https://github.com/deivydasp/allure-publish-action/actions/workflows/ci.yml)
+[![License: BSD-3-Clause](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://github.com/deivydasp/allure-publish-action/blob/master/LICENSE)
 
 Deploy Allure 3 test reports to GitHub Pages with History, Report Aggregation, and a Summary Landing Page.
 
@@ -40,7 +40,7 @@ jobs:
       - name: Run tests
         run: # Run tests that produce allure-results
       - name: Deploy Allure Report
-        uses: deivydasp/allure-deployer-action@v2
+        uses: deivydasp/allure-publish-action@v2
         with:
           allure_results_path: 'allure-results'
 ```
@@ -65,7 +65,7 @@ jobs:
       - name: Run tests
         run: # Run tests that produce allure-results
       - name: Deploy Allure Report
-        uses: deivydasp/allure-deployer-action@v2
+        uses: deivydasp/allure-publish-action@v2
         with:
           allure_results_path: 'allure-results'
           pr_comment: 'true'
@@ -77,13 +77,13 @@ jobs:
 
 ```yaml
 - name: Deploy API tests
-  uses: deivydasp/allure-deployer-action@v2
+  uses: deivydasp/allure-publish-action@v2
   with:
     allure_results_path: 'api-test-results'
     prefix: 'api-tests'
 
 - name: Deploy E2E tests
-  uses: deivydasp/allure-deployer-action@v2
+  uses: deivydasp/allure-publish-action@v2
   with:
     allure_results_path: 'e2e-test-results'
     prefix: 'e2e-tests'
@@ -107,7 +107,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - run: # Run API tests
-      - uses: deivydasp/allure-deployer-action@v2
+      - uses: deivydasp/allure-publish-action@v2
         with:
           allure_results_path: 'api-results'
           prefix: 'api-tests'
@@ -122,7 +122,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - run: # Run E2E tests
-      - uses: deivydasp/allure-deployer-action@v2
+      - uses: deivydasp/allure-publish-action@v2
         with:
           allure_results_path: 'e2e-results'
           prefix: 'e2e-tests'
@@ -137,7 +137,7 @@ jobs:
       contents: read
       pages: read
     steps:
-      - uses: deivydasp/allure-deployer-action@v2
+      - uses: deivydasp/allure-publish-action@v2
         with:
           mode: summary
           prefixes: 'api-tests,e2e-tests'
